@@ -1,6 +1,9 @@
 configure :development do
   require 'sinatra/reloader'
   require 'better_errors'
+
+  register Sinatra::Reloader
+
   use BetterErrors::Middleware
   BetterErrors.application_root = File.expand_path('..', __FILE__)
 end
