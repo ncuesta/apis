@@ -54,4 +54,24 @@ helpers do
   def carrera_url(unidad_academica, carrera)
     url carrera_path(unidad_academica, carrera)
   end
+
+  ### Becas
+
+  def beca_path(beca)
+    codigo = extract(beca, :codigo)
+    "/becas/#{codigo}"
+  end
+
+  def beca_url(beca)
+    url beca_path(beca)
+  end
+
+  def becas_asignadas_path(persona)
+    documento = extract(persona, :documento)
+    "/personas/#{documento}/becas"
+  end
+
+  def becas_asignadas_url(persona)
+    url becas_asignadas_path(persona)
+  end
 end

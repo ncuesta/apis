@@ -1,3 +1,3 @@
-get '/personas.json', provides: :json do
+get '/personas', provides: :json do
   '{}'
 end

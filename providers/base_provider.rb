@@ -1,6 +1,13 @@
 class BaseProvider
   def self.find(id)
-    Hashie::Mash.new data[id] unless data[id].nil?
+    values = data[id]
+    unless data[id].nil?
+      begin
+        values = Hashie::Mash.new(values)
+      rescue NoMethodError
+        values = values.map { |v| Hashie::Mash.new(v) }
+      end
+    end
   end
 
   def self.find_by(criteria)
