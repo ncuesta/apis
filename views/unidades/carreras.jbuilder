@@ -1,4 +1,4 @@
-json.array! @unidad.carreras do |carrera|
+json.carreras @carreras do |carrera|
   json.(carrera, :codigo, :nombre)
 
   json.links do

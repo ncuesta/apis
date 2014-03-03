@@ -1,4 +1,9 @@
-require 'sinatra/reloader' if development?
+configure :development do
+  require 'sinatra/reloader'
+  require 'better_errors'
+  use BetterErrors::Middleware
+  BetterErrors.application_root = File.expand_path('..', __FILE__)
+end
 
 require_relative 'controllers/alumnos'
 require_relative 'controllers/anses'

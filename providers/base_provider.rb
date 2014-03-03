@@ -6,6 +6,6 @@ class BaseProvider
   def self.find_by(criteria)
     data.select do |key, datum|
       criteria.inject(true) { |_, (field, value)| _ && datum[field] == value }
-    end
+    end.map { |k, v| Hashie::Mash.new v }
   end
 end
